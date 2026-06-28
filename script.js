@@ -4,7 +4,7 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const year = document.querySelector("[data-year]");
 const form = document.querySelector("[data-booking-form]");
 const formStatus = document.querySelector("[data-form-status]");
-const bookingEmail = "booking@example.com";
+const bookingEmail = "5oclock.five@gmail.com";
 
 if (year) {
   year.textContent = new Date().getFullYear();
