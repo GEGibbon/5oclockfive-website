@@ -75,6 +75,12 @@ textarea {
   box-shadow: 0 12px 35px rgba(28, 23, 24, 0.08);
 }
 
+.site-header--solid {
+  color: var(--ink);
+  background: rgba(255, 253, 250, 0.96);
+  box-shadow: 0 12px 35px rgba(28, 23, 24, 0.08);
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -310,6 +316,14 @@ h3 {
   background: var(--white);
 }
 
+.media-section {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.media-section .section-heading {
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
 .section-accent {
   color: var(--white);
   background: var(--clock-dark);
@@ -365,7 +379,8 @@ h3 {
 .media-photo-link img {
   width: 100%;
   height: 100%;
-  min-height: 380px;
+  min-height: 320px;
+  max-height: 320px;
   object-fit: cover;
   transition: transform 260ms ease;
 }
@@ -409,8 +424,8 @@ h3 {
 .listen-links a {
   display: grid;
   align-content: center;
-  min-height: 118px;
-  padding: 1.25rem;
+  min-height: 96px;
+  padding: 1rem 1.25rem;
   transition: border-color 180ms ease, transform 180ms ease;
 }
 
@@ -449,6 +464,10 @@ h3 {
 
 .copy-stack p {
   margin-bottom: 0;
+}
+
+.copy-stack strong {
+  color: var(--ink);
 }
 
 .card-grid {
@@ -636,13 +655,29 @@ h3 {
   column-gap: 1rem;
 }
 
+.photo-page-section {
+  padding-top: calc(var(--header-height) + clamp(3.5rem, 8vw, 7rem));
+  background: var(--white);
+}
+
+.photo-page-heading {
+  max-width: 900px;
+}
+
+.photo-page-heading h1 {
+  max-width: 13ch;
+  margin-bottom: 1.25rem;
+  font-size: clamp(3.25rem, 8vw, 6.75rem);
+  line-height: 0.94;
+}
+
 .photo-card {
   position: relative;
   display: block;
   margin-bottom: 1rem;
   overflow: hidden;
   break-inside: avoid;
-  background: var(--clock-dark);
+  background: #e8e0d7;
   border-radius: var(--radius);
   box-shadow: 0 12px 34px rgba(28, 23, 24, 0.11);
 }
