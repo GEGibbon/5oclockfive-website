@@ -188,7 +188,7 @@ textarea {
   position: relative;
   z-index: 2;
   align-self: end;
-  width: min(760px, 100%);
+  width: min(840px, 100%);
   padding: calc(var(--header-height) + 5rem) clamp(1rem, 6vw, 4rem) clamp(3rem, 9vw, 6.5rem);
 }
 
@@ -219,6 +219,21 @@ h1 {
   font-size: clamp(4rem, 14vw, 9.5rem);
   line-height: 0.88;
   letter-spacing: 0;
+}
+
+.hero-title-the,
+.hero-title-line {
+  display: block;
+}
+
+.hero-title-the {
+  margin-bottom: 0.18em;
+  font-size: 0.28em;
+  line-height: 1;
+}
+
+.hero-title-nowrap {
+  white-space: nowrap;
 }
 
 h2 {
@@ -617,16 +632,58 @@ h3 {
 }
 
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  column-count: 3;
+  column-gap: 1rem;
 }
 
-.photo-grid img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.photo-card {
+  position: relative;
+  display: block;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  break-inside: avoid;
+  background: var(--clock-dark);
   border-radius: var(--radius);
+  box-shadow: 0 12px 34px rgba(28, 23, 24, 0.11);
+}
+
+.photo-card::after {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  padding: 0.45rem 0.65rem;
+  color: var(--white);
+  content: "View full size";
+  background: rgba(16, 13, 14, 0.82);
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto;
+  transition: transform 260ms ease;
+}
+
+.photo-card:hover img,
+.photo-card:focus-visible img {
+  transform: scale(1.018);
+}
+
+.photo-card:hover::after,
+.photo-card:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-card:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
 }
 
 .contact-section {
@@ -706,9 +763,12 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .card-grid,
-  .photo-grid {
+  .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-grid {
+    column-count: 2;
   }
 }
 
@@ -803,9 +863,12 @@ h3 {
     font-size: clamp(2rem, 13vw, 3rem);
   }
 
-  .card-grid,
-  .photo-grid {
+  .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .photo-grid {
+    column-count: 1;
   }
 
   .info-card {
